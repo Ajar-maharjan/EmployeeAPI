@@ -28,6 +28,7 @@ public class ShowEmployee extends AppCompatActivity {
 
 //    TextView tvOutput;
     RecyclerView recyclerView;
+    List<EmployeeView> employeeViewList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,6 @@ public class ShowEmployee extends AppCompatActivity {
 
 //        tvOutput=findViewById(R.id.tvOutput);
         recyclerView = findViewById(R.id.recyclerView);
-        final List<EmployeeView> employeeViewList = new ArrayList<>();
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(URL.base_url)
@@ -53,6 +53,8 @@ public class ShowEmployee extends AppCompatActivity {
             public void onResponse(Call<List<Employee>> call, Response<List<Employee>> response) {
                 if(!response.isSuccessful()){
                     Toast.makeText(ShowEmployee.this, "Error code"+response.code(), Toast.LENGTH_SHORT).show();
+                    Log.d("msg","onFailure"+ response.code());
+
                     return;
                 }
 
@@ -65,7 +67,13 @@ public class ShowEmployee extends AppCompatActivity {
 //                    data +="Age is:"+emp.getEmployee_age()+"\n";
 //                    data +="........"+"\n";
 //                    tvOutput.append(data);
-                    employeeViewList.add(new EmployeeView(emp.getId(),emp.getEmployee_name(),emp.getEmployee_salary(),emp.getEmployee_age()));
+                    int id,age;
+                    String name,salary;
+                    id = emp.getId();
+                    age = emp.getEmployee_age();
+                    name = emp.getEmployee_name();
+                    salary = emp.getEmployee_salary();
+                    employeeViewList.add(new EmployeeView(id,name,salary,age));
 
                 }
 

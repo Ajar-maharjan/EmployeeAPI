@@ -1,5 +1,6 @@
 package com.e.classworkvoli.Recycler;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,19 +32,20 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.Employ
         return new EmployeeViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull EmployeeViewHolder holder, int position) {
         EmployeeView employeeView = employeeViewList.get(position);
-        holder.tvEmployeeId.setText(employeeView.getEmployeeId());
+        holder.tvEmployeeId.setText(employeeView.getEmployeeId()+"");
         holder.tvEmployeeName.setText(employeeView.getEmployeeName());
         holder.tvEmployeeSalary.setText(employeeView.getEmployeeSalary());
-        holder.tvEmployeeAge.setText(employeeView.getEmployeeAge());
+        holder.tvEmployeeAge.setText(employeeView.getEmployeeAge()+"");
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return employeeViewList.size();
     }
 
     public class EmployeeViewHolder extends RecyclerView.ViewHolder{
