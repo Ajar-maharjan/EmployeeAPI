@@ -9,6 +9,7 @@
 
 
     <EditText
+        android:id="@+id/etEmpNo"
         android:hint="Enter Employee No"
         android:layout_width="match_parent"
         android:layout_margin="20dp"
@@ -16,10 +17,18 @@
 
 
     <Button
+        android:id="@+id/btnSearch"
         android:text="Search"
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvData"
+        android:layout_width="match_parent"
+        android:textSize="20sp"
+        android:layout_height="wrap_content"/>
+
 
 </LinearLayout>

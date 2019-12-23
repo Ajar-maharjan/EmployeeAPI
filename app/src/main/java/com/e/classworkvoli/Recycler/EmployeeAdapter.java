@@ -11,18 +11,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.e.classworkvoli.R;
+import com.e.classworkvoli.model.Employee;
 
 import java.util.List;
 
 public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.EmployeeViewHolder>{
 
-    public EmployeeAdapter(Context context, List<EmployeeView> employeeViewList) {
+    public EmployeeAdapter(Context context, List<Employee> employeeViewList) {
         this.context = context;
         this.employeeViewList = employeeViewList;
     }
 
     Context context;
-    List<EmployeeView> employeeViewList;
+    List<Employee> employeeViewList;
 
     @NonNull
     @Override
@@ -35,11 +36,12 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.Employ
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull EmployeeViewHolder holder, int position) {
-        EmployeeView employeeView = employeeViewList.get(position);
-        holder.tvEmployeeId.setText(employeeView.getEmployeeId()+"");
-        holder.tvEmployeeName.setText(employeeView.getEmployeeName());
-        holder.tvEmployeeSalary.setText(employeeView.getEmployeeSalary());
-        holder.tvEmployeeAge.setText(employeeView.getEmployeeAge()+"");
+        Employee employeeView = employeeViewList.get(position);
+        holder.tvEmployeeId.setText(employeeView.getId()+"");
+        holder.tvEmployeeName.setText(employeeView.getEmployee_name());
+        holder.tvEmployeeSalary.setText(employeeView.getEmployee_salary());
+        holder.tvEmployeeAge.setText(employeeView.getEmployee_age()+"");
+
 
     }
 

@@ -6,12 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.e.classworkvoli.API.EmployeeAPI;
 import com.e.classworkvoli.Recycler.EmployeeAdapter;
-import com.e.classworkvoli.Recycler.EmployeeView;
 import com.e.classworkvoli.model.Employee;
 import com.e.classworkvoli.url.URL;
 
@@ -26,18 +24,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ShowEmployee extends AppCompatActivity {
 
-//    TextView tvOutput;
     RecyclerView recyclerView;
-    List<EmployeeView> employeeViewList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_employee);
 
-//        tvOutput=findViewById(R.id.tvOutput);
         recyclerView = findViewById(R.id.recyclerView);
 
+        
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(URL.base_url)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -60,25 +56,13 @@ public class ShowEmployee extends AppCompatActivity {
 
                 List<Employee> employeeList = response.body();
 
-                for(Employee emp: employeeList){
-//                    String data = "";
-//                    data +="Name is:"+emp.getEmployee_name()+"\n";
-//                    data +="Salary is:"+emp.getEmployee_salary()+"\n";
-//                    data +="Age is:"+emp.getEmployee_age()+"\n";
-//                    data +="........"+"\n";
-//                    tvOutput.append(data);
-                    int id,age;
-                    String name,salary;
-                    id = emp.getId();
-                    age = emp.getEmployee_age();
-                    name = emp.getEmployee_name();
-                    salary = emp.getEmployee_salary();
-                    employeeViewList.add(new EmployeeView(id,name,salary,age));
-
-                }
+                EmployeeAdapter employeeAdapter = new EmployeeAdapter(ShowEmployee.this,employeeList);
+                recyclerView.setAdapter(employeeAdapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(ShowEmployee.this));
 
 
             }
+
 
             @Override
             public void onFailure(Call<List<Employee>> call, Throwable t) {
@@ -88,8 +72,6 @@ public class ShowEmployee extends AppCompatActivity {
             }
         });
 
-        EmployeeAdapter employeeAdapter = new EmployeeAdapter(this,employeeViewList);
-        recyclerView.setAdapter(employeeAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
     }
 }
