@@ -47,12 +47,8 @@ public class Search extends AppCompatActivity {
     }
 
     private void loadData(){
-        Retrofit retrofit = new  Retrofit.Builder()
-                .baseUrl(URL.base_url)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        EmployeeAPI employeeAPI = retrofit.create(EmployeeAPI.class);
+        EmployeeAPI employeeAPI = URL.CreateInstance().create(EmployeeAPI.class);
 
         Call<Employee> listCall = employeeAPI.getEmployeeByID(Integer.parseInt(etEmpNo.getText().toString()));
         listCall.enqueue(new Callback<Employee>() {

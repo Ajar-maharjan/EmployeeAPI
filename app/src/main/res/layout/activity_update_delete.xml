@@ -8,43 +8,56 @@
     tools:context=".UpdateDelete">
 
 
-
     <EditText
-        android:hint="Enter Employee No"
+        android:id="@+id/etEmpNumber"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:layout_height="wrap_content"/>
+        android:hint="Enter Employee No" />
 
 
     <Button
-        android:text="Search"
-        android:layout_marginRight="30dp"
+        android:id="@+id/btnSearchForEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_marginRight="30dp"
+        android:text="Search" />
 
     <EditText
-        android:hint="Employee No"
-        android:layout_margin="20dp"
+        android:id="@+id/etEmpName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:hint="Employee Salary"
+        android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:hint="Employee Name" />
 
     <EditText
-        android:hint="Employee No"
-        android:layout_margin="20dp"
+        android:id="@+id/etEmpSalary"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="Employee Salary" />
+
+    <EditText
+        android:id="@+id/etEmppAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="Employee age" />
 
     <Button
-        android:text="UPDATE"
-        android:layout_margin="20dp"
+        android:id="@+id/btnUpdate"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="UPDATE" />
+
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Delete" />
 
 
 </LinearLayout>

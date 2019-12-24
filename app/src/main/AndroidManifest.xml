@@ -12,9 +12,6 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewActivity">
-
-        </activity>
         <activity android:name=".ShowEmployee" />
         <activity android:name=".UpdateDelete" />
         <activity android:name=".Search" />

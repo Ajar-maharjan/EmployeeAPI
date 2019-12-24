@@ -48,12 +48,8 @@ public class Register extends AppCompatActivity {
 
         EmployeeCUD employee = new EmployeeCUD(name,salary, age);
 
-        Retrofit retrofit = new Retrofit.Builder()
-                            .baseUrl(URL.base_url)
-                            .addConverterFactory(GsonConverterFactory.create())
-                            .build();
 
-        EmployeeAPI employeeAPI = retrofit.create(EmployeeAPI.class);
+        EmployeeAPI employeeAPI = URL.CreateInstance().create(EmployeeAPI.class);
 
         Call<Void> voidCall = employeeAPI.registerEmployee(employee);
         voidCall.enqueue(new Callback<Void>() {

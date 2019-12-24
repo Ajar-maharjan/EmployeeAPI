@@ -33,14 +33,8 @@ public class ShowEmployee extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
 
-        
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(URL.base_url)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
         //instance for interface
-        EmployeeAPI employeeAPI = retrofit.create(EmployeeAPI.class);
+        EmployeeAPI employeeAPI = URL.CreateInstance().create(EmployeeAPI.class);
         Call<List<Employee>> listCall = employeeAPI.getAllEmployees();
 
         //asynchronous
